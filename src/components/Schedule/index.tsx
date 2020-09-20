@@ -6,6 +6,7 @@ import { ValidationError } from "yup";
 
 // Components
 import Select from "../Select"
+import BoxMessage from "../BoxMessage"
 
 // @ts-ignore
 import { Calendar } from "react-modern-calendar-datepicker";
@@ -16,6 +17,7 @@ import { Container } from './styles';
 import ICalendar from "../../utils/types/calendar";
 import DebounceFunction from "../../utils/debounce";
 import SchemaSchedule from "../../utils/Schedule";
+import SchedulingResult from "./Result"
 
 // Services
 import axios from "../../services/axios"
@@ -26,7 +28,8 @@ const Schedule: React.FC = () => {
     month: new Date().getMonth(),
     day: new Date().getDay()
   })
-  const [ scheduling, setScheduling ] = useState<Date>()
+  const [ scheduling, setScheduling ] = useState<Object>()
+  const [ boxMessage, setBoxMessage ] = useState<any>()
 
   const formRef = useRef(null)
 
@@ -41,21 +44,28 @@ const Schedule: React.FC = () => {
     try {
       const dataScheduling = {
         ...dataForm,
-        phone: "5588994182122",
+        id_user: "5f677415130ed11f48d84fbd",
+        phone: "5511963092396",
         date_schedule: `${daySelected.day}/${daySelected.month}/${daySelected.year}`,
         qrcode: "HP9264"
       }
 
-      await SchemaSchedule.isValid(dataScheduling, { abortEarly: false, })
+      await SchemaSchedule.validate(dataScheduling, { abortEarly: false, })
 
       const response = await axios.post("/schedule/create", dataScheduling)
 
       // @ts-ignore
-      if (response?.code !== 200) {
-        return;
+      if (response?.data.code !== 200) {
+        handlerRemoveListeners()
+        // @ts-ignore
+        setBoxMessage({ message: response?.data?.error })
+        return
       }
-      
 
+      // @ts-ignore
+      setScheduling(dataScheduling);
+      handlerRemoveListeners()
+      handlerSetScroll()
     } catch (error) {
       if (error instanceof ValidationError) {
         const validationErrors = {}
@@ -65,13 +75,58 @@ const Schedule: React.FC = () => {
         });
         // @ts-ignore
         formRef.current.setErrors(validationErrors);
+        handlerRemoveError()
+      } else {
+        // @ts-ignore
+        setBoxMessage({ title: "Houve um erro inesperado", message: error?.message })
       }
-
-      console.log(error)
     }
   }
 
-  return (
+  function handlerCloseBoxMessage() {
+    setBoxMessage({})
+    setScheduling({})
+  }
+
+  function handlerRemoveError() {
+    // @ts-ignore
+    document.querySelectorAll('select').forEach(item => {
+      item.addEventListener("change", () => {
+        // @ts-ignore
+        item.classList.remove("select_error")
+      })
+    })
+  }
+
+  function handlerRemoveListeners() {
+    // @ts-ignore
+    document.querySelectorAll('select').forEach(item => {
+      item.removeEventListener("change", (event) => { })
+    })
+  }
+
+  function handlerSetScroll() {
+    window.scrollTo({
+      top: 0
+    })
+  }
+  return <>
+    {
+      scheduling && (
+        <SchedulingResult
+          // @ts-ignore
+          data={scheduling?.date_schedule}
+          // @ts-ignore
+          local={scheduling?.local}
+          // @ts-ignore
+          prof={scheduling?.name_responsible}
+        />
+      )
+    }
+    {
+      boxMessage?.message &&
+      (<BoxMessage title={boxMessage?.title} message={boxMessage?.message} callback={handlerCloseBoxMessage} />)
+    }
     <Container>
       <div className={'header'}>
         <h1>Agendamento</h1>
@@ -123,8 +178,7 @@ const Schedule: React.FC = () => {
         </button>
       </Form>
     </Container>
-
-  );
+  </>
 }
 
 export default Schedule;

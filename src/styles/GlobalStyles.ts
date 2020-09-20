@@ -65,6 +65,15 @@ export default createGlobalStyle`
       cursor: pointer;
     }
 
+    .select_error {
+      background: linear-gradient(135.44deg, #ff2929 0%, #f34444 99.98%);
+      color: var(--third-text);
+    }
+
+    .select_error::placeholder {
+      color: var(--third-text);
+    }
+
     .btn-default {
       background: linear-gradient(135.44deg, #ECECEC 0%, #D6D6D6 99.98%);
       box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.05);

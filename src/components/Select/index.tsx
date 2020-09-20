@@ -12,5 +12,10 @@ export default function Input({ name, ...rest }) {
       path: 'value',
     });
   }, [ fieldName, registerField ]);
-  return <select ref={inputRef} defaultValue={defaultValue} {...rest} />;
+  return <select
+    ref={inputRef}
+    defaultValue={defaultValue}
+    {...rest}
+    className={error ? "select_error" : ""}
+  />;
 }
