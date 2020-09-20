@@ -52,12 +52,9 @@ const Home: React.FC = () => {
         <div>Acompanhar </div>
       </Card>
       <Card>
-
-
-
-        <div>Agenda</div>
-
-
+        <Link to={'/calendar'}>
+          <div>Agenda</div>
+        </Link>
         <Link to={'/schedule'}>
           <div>Agendar Consultas</div>
         </Link>
