@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const Container = styled.diva.attrs({
+  className: "ContainerBox"
+})`
   width:60%;
   min-height:150px;
   height:auto;
