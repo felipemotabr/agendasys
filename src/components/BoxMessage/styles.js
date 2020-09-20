@@ -35,6 +35,7 @@ export const Content = styled.div`
     margin-top:35px;
     background:var(--primary-background);
     color:#ffff;
+    cursor:pointer;
 
     align-self:flex-end;
   }

@@ -33,12 +33,15 @@ const Home: React.FC = () => {
     handlerLoadAllMySchedulings()
   }, [])
 
+  function handlerCloseBoxMessage() {
+    setBoxMessage({})
+  }
   return <>
     {
       // @ts-ignore
       boxMessage?.message && (
         // @ts-ignore
-        <BoxMessage title={boxMessage?.title} message={boxMessage?.message} />
+        <BoxMessage title={boxMessage?.title} message={boxMessage?.message} callback={handlerCloseBoxMessage} />
       )
     }
     <Container>
@@ -52,12 +55,7 @@ const Home: React.FC = () => {
         <div>Acompanhar </div>
       </Card>
       <Card>
-
-
-
         <div>Agenda</div>
-
-
         <Link to={'/schedule'}>
           <div>Agendar Consultas</div>
         </Link>
@@ -68,7 +66,7 @@ const Home: React.FC = () => {
       <ContentBookmark>
         {
           // @ts-ignore
-          mySchedulings?.length > 0 && mySchedulings?.map((bookmark, index) =>
+          mySchedulings?.length > 0 ? mySchedulings?.map((bookmark, index) =>
             (<Bookmark key={index}>
               <div className={'icon'}><img src={IconBookmark} alt={''} /></div>
               <div className={'content'}>
@@ -99,6 +97,10 @@ const Home: React.FC = () => {
                   </p>
               </div>
             </Bookmark>))
+            :
+            (
+              <p>nenhuma consulta disponivel</p>
+            )
         }
       </ContentBookmark>
 

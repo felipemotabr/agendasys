@@ -151,7 +151,7 @@ const Schedule: React.FC = () => {
         <Select name="local">
           <option value="">Clínica:</option>
           <option value="SUS">SUS</option>
-          <option value="Clínica Sua Saúde<">Clínica Sua Saúde</option>
+          <option value="Clínica Sua Saúde">Clínica Sua Saúde</option>
           <option value="Centro de Psicologia">Centro de Psicologia</option>
           <option value="Clínica SJR">Clínica SJR</option>
           <option value="CAE">CAE</option>
