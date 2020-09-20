@@ -57,6 +57,10 @@ export const Button = styled.div`
   text-align: center;
   color: var(--third-text);
   margin-top: 44px;
+  
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const Divisor = styled.div`
@@ -88,7 +92,9 @@ export const Social = styled.div`
     padding: 9px;
     width: 50%;
 
-
+    &:hover {
+    opacity: 0.9;
+  }
 
     &:first-child {
       background: #A81E1E;

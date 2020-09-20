@@ -62,6 +62,7 @@ export default createGlobalStyle`
       margin-bottom: 35px;
       max-width: 300px;
       outline: none;
+      cursor: pointer;
     }
 
     .btn-default {
@@ -75,6 +76,11 @@ export default createGlobalStyle`
       display: block;
       margin: auto;
       margin-top: 20px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+      }
     }
   }
 `;

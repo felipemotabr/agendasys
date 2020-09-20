@@ -54,7 +54,11 @@ export const Card = styled.div`
     font-weight: 600;
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    } 
   }
 `;
 
