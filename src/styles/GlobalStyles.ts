@@ -20,7 +20,7 @@ export default createGlobalStyle`
   }
   html {
     background: var(--third-background);
-    max-width: 368px;
+    max-width: 328px;
     margin: auto;
   }
 
@@ -76,6 +76,7 @@ export default createGlobalStyle`
       display: block;
       margin: auto;
       margin-top: 20px;
+      margin-bottom: 10px;
       cursor: pointer;
 
       &:hover {

@@ -30,8 +30,10 @@ export const Card = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around; 
+  justify-content: space-between; 
   margin-bottom: 10px;
+  flex-shrink: 1;
+  max-width: 280px;
   
   a {
     text-decoration: none;
@@ -40,7 +42,7 @@ export const Card = styled.div`
   div {
     background: var(--primary-background);
     height: 132px;
-    width: 132px;
+    width: 130px;
     flex-wrap: wrap;
     display: flex;
     align-content: flex-end;
@@ -55,6 +57,8 @@ export const Card = styled.div`
     border-radius: 15px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    outline: 0;
+
 
     &:hover {
       opacity: 0.9;

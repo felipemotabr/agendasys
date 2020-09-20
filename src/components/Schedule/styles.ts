@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   padding-top: 60px;
   text-align: center;
+  padding-bottom: 60px;
 
   p {
       color: var(--secondary-text);
