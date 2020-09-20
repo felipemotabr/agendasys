@@ -5,7 +5,8 @@ import { Container, Card, Button } from './styles';
 
 import IconOne from './../../../image/icon1.png'
 
-const Result: React.FC = () => {
+// @ts-ignore
+const Result: React.FC = ({ data, local, prof, }) => {
   return (
     <Container>
       <div className={'header'}>
@@ -19,14 +20,14 @@ const Result: React.FC = () => {
             <img src={IconOne} alt={''} />
           </div>
           <div>
-            <h1>Sex - 11 de Set</h1>
-            <p><strong>Clínica Sua Saúde</strong>
-              <span>Psicólogo Dra.</span>
-              <span>Maria Souza</span>
+            <h1>{data}</h1>
+            <p><strong>{local}</strong>
+              <span></span>
+              <span>{prof}</span>
               <strong>9h30min</strong></p>
           </div>
         </div>
-        <Link to={'/'}>
+        <Link to={'/home'}>
           <Button>
             IR PARA MENU INICIAL
       </Button>
