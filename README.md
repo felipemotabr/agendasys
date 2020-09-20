@@ -1,3 +1,5 @@
+![logo.jpg](logo.jpg)
+
 ## AgendaSys
 
 Aplicação PWA do sistema de agendamento AgendaSys. Feito com React.js. Este aplicativo tem por objetivo facilitar agendamentos de consultas e exames sem perder muito tempo, comunicação mais precisa, sem prejudicar o paciente. Melhor controle no fluxo de atendimento e maior eficiencia  na comunicação entre clinicas/hospitais e pacientes.
