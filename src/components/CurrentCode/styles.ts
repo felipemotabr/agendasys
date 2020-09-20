@@ -28,6 +28,6 @@ export const Container = styled.div`
         outline: none;
         margin-top: 20px;
       }
-
+    }
 
 `;

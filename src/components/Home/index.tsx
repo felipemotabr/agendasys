@@ -12,15 +12,17 @@ const Home: React.FC = () => {
       <h2>O que deseja fazer?</h2>
 
       <Card>
-        <div>Código da Consulta Atual</div>
+        <Link to={'/currentcode'}>
+          <div>Código da Consulta Atual</div>
+        </Link>
         <div>Acompanhar </div>
       </Card>
       <Card>
 
 
-        <Link to={'/currentcode'}>
-          <div>Agenda</div>
-        </Link>
+
+        <div>Agenda</div>
+
 
         <Link to={'/schedule'}>
           <div>Agendar Consultas</div>
