@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import GlobalStyles from './styles/GlobalStyles';
+import ResponsiveStyles from './styles/reponsive';
 
 import Login from './components/Login'
 import Home from './components/Home';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" component={Login} />
       </Switch>
       <GlobalStyles />
+      <ResponsiveStyles />
     </Router>
   );
 }

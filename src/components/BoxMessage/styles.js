@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-export const Container = styled.div`
+export const Container = styled.div.attrs({
+  className: "ContainerBox"
+})`
   width:60%;
   min-height:150px;
   height:auto;
@@ -35,6 +37,7 @@ export const Content = styled.div`
     margin-top:35px;
     background:var(--primary-background);
     color:#ffff;
+    cursor:pointer;
 
     align-self:flex-end;
   }
