@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 
 export default createGlobalStyle`
-  @media screen and (min-width:200px) and (max-width:1020px) {    
+  @media screen and (min-width:100px) and (max-width:1020px) {    
     .ContainerBox {
       width:90%;
       height:300px;
